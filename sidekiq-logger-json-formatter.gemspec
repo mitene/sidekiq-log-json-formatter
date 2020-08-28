@@ -15,6 +15,10 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'sidekiq', '~> 6'
-end
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rspec'
 
+  spec.add_dependency 'sidekiq', '~> 6'
+end
