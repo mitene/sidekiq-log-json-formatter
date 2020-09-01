@@ -20,4 +20,5 @@ Gemfile.lock
 .ruby-version
 .ruby-gemset
 .rubocop-https?--*
+.rspec_status
 .idea
