@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'sidekiq/logger/json_formatter'
+require 'sidekiq/log_json_formatter'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

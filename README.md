@@ -1,1 +1,1 @@
-# sidekiq-logger-json-formatter
+# sidekiq-log_json_formatter

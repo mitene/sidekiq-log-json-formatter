@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe 'Sidekiq::Logger::JsonFormatter' do
+RSpec.describe 'Sidekiq::LogJsonFormatter' do
   describe '#call' do
-    subject { Sidekiq::Logger::JsonFormatter.new.call(severity, time, program_name, message) }
+    subject { Sidekiq::LogJsonFormatter.new.call(severity, time, program_name, message) }
 
     let(:time) { Time.now }
     let(:program_name) { 'RSpec' }
@@ -24,7 +24,7 @@ RSpec.describe 'Sidekiq::Logger::JsonFormatter' do
 
     context 'debug severity' do
       before do
-        allow_any_instance_of(Sidekiq::Logging::Pretty).to receive(:context).and_return('')
+        allow_any_instance_of(Sidekiq::LogJsonFormatter).to receive(:context).and_return('')
       end
 
       let(:severity) { 'DEBUG' }
@@ -38,7 +38,7 @@ RSpec.describe 'Sidekiq::Logger::JsonFormatter' do
 
     context 'INFO severity' do
       before do
-        allow_any_instance_of(Sidekiq::Logging::Pretty).to receive(:context).and_return("#{worker} #{jid}")
+        allow_any_instance_of(Sidekiq::LogJsonFormatter).to receive(:context).and_return("#{worker} #{jid}")
       end
 
       let(:severity) { 'INFO' }

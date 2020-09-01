@@ -1,12 +1,12 @@
 Gem::Specification.new do |spec|
-  spec.name          = 'sidekiq-logger-json-formatter'
+  spec.name          = 'sidekiq-log_json_formatter'
   spec.version       = '0.0.1'
   spec.authors       = ['hekki']
   spec.email         = ['contact@hekki.info']
 
-  spec.summary       = 'Format Sidekiq logs to JSON format'
-  spec.description   = 'sidekiq-logger-json-formatter format Sidekiq logs to JSON format'
-  spec.homepage      = 'https://github.com/mitene/sidekiq-logger-json-formatter'
+  spec.summary       = 'Format Sidekiq logs to JSON'
+  spec.description   = 'sidekiq-log_json_formatter format Sidekiq logs to JSON'
+  spec.homepage      = 'https://github.com/mitene/sidekiq-log_json_formatter'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.6.3')
 
