@@ -1,0 +1,2 @@
+inherit_from:
+  - https://raw.githubusercontent.com/mitene/rubocop-setting/master/.rubocop_common.yml
