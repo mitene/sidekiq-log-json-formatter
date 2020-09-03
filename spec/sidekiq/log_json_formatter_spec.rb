@@ -23,10 +23,6 @@ RSpec.describe 'Sidekiq::LogJsonFormatter' do
     end
 
     context 'debug severity' do
-      before do
-        allow_any_instance_of(Sidekiq::LogJsonFormatter).to receive(:context).and_return('')
-      end
-
       let(:severity) { 'DEBUG' }
       let(:message) { 'debug message' }
       let(:worker) { nil }
@@ -38,7 +34,7 @@ RSpec.describe 'Sidekiq::LogJsonFormatter' do
 
     context 'INFO severity' do
       before do
-        allow_any_instance_of(Sidekiq::LogJsonFormatter).to receive(:context).and_return("#{worker} #{jid}")
+        allow_any_instance_of(Sidekiq::LogJsonFormatter).to receive(:ctx).and_return(ctx)
       end
 
       let(:severity) { 'INFO' }
@@ -46,6 +42,7 @@ RSpec.describe 'Sidekiq::LogJsonFormatter' do
       let(:jid) { 'JID-xxxxxxxxxxxxxxxxxxxxxx' }
 
       context 'status: start' do
+        let(:ctx) { { 'class': 'TestWorker', 'jid': 'xxxxxxxxxxxxxxxxxxxxxx' } }
         let(:message) { 'start' }
         let(:status) { 'start' }
         let(:run_time) { nil }
@@ -54,7 +51,8 @@ RSpec.describe 'Sidekiq::LogJsonFormatter' do
       end
 
       context 'status: done' do
-        let(:message) { 'done: 0.015 sec' }
+        let(:ctx) { { 'class': 'TestWorker', 'jid': 'xxxxxxxxxxxxxxxxxxxxxx', 'elapsed': '0.015' } }
+        let(:message) { 'done' }
         let(:status) { 'done' }
         let(:run_time) { 0.015 }
 
@@ -62,7 +60,8 @@ RSpec.describe 'Sidekiq::LogJsonFormatter' do
       end
 
       context 'status: fail' do
-        let(:message) { 'fail: 0.123 sec' }
+        let(:ctx) { { 'class': 'TestWorker', 'jid': 'xxxxxxxxxxxxxxxxxxxxxx', 'elapsed': '0.123' } }
+        let(:message) { 'fail' }
         let(:status) { 'fail' }
         let(:run_time) { 0.123 }
 

@@ -7,16 +7,20 @@ A gem that formats [Sidekiq](https://github.com/mperham/sidekiq) logs into JSON 
   "@timestamp": "2020-09-01T18:41:42Z",
   "@fields": {
     "pid": 1234,
-    "tid": "TID-1o3t9o",
-    "context": "ExampleWorker JID-deda0f0c174afad251121282",
-    "program_name":null,
-    "worker":"ExampleWorker",
-  },
+    "tid": "TID-1o3t9o", 
+    "context": {
+      "class": "ExampleWorker",
+      "jid": "7094855b3de6a4507c9825ec",
+      "elapsed": "51.579"
+    },
+    "program_name": null,
+    "worker": "ExampleWorker"
+  }, 
   "@type": "sidekiq",
   "@status": "done",
-  "@severity": "INFO",
+  "@severity": "INFO", 
   "@run_time": 51.579,
-  "@message": "done: 37.298 sec"
+  "@message": "done"
 }
 ```
 
