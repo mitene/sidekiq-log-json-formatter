@@ -27,26 +27,26 @@ A gem that formats [Sidekiq](https://github.com/mperham/sidekiq) logs into JSON 
 ### Installation
 Add this line to your application's Gemfile:
 
-```
+```ruby
 gem 'sidekiq-log_json_formatter'
 ```
 
 And then execute:
 
-```
+```sh
 $ bundle
 ```
 
 Or install it yourself as:
 
-```
+```sh
 $ gem install sidekiq-log_json_formatter
 ```
 
 ### Usage
 Add this to your Sidekiq configuration:
 
-```
+```ruby
 require 'sidekiq/log_json_formatter'
 
 Sidekiq.logger.formatter = Sidekiq::LogJsonFormatter.new
