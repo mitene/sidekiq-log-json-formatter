@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = 'sidekiq-log_json_formatter'
-  spec.version       = '0.0.1'
+  spec.version       = '1.0.0'
   spec.authors       = ['hekki']
   spec.email         = ['contact@hekki.info']
 
